@@ -435,7 +435,7 @@ body {
 .couple-img {
     position: relative;
     overflow: hidden;
-    height: 250px;
+    height: 400px;
 }
 
 .couple-img img {
@@ -443,6 +443,7 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s;
+    display: block;
 }
 
 .couple-img:hover img {
@@ -479,7 +480,17 @@ body {
     font-size: 1.5rem;
 }
 
-/* Video Section (Phone Frame) */
+/* Us Card */
+.us-card {
+    margin-top: 40px; /* Adds vertical space to form a V shape visually */
+}
+
+/* On large screens, groom and bride are on one line, the us-card naturally wraps to next line centered */
+@media (min-width: 1024px) {
+    /* Since .couple-container is justify-content:center and all cards have equal width and margin,
+       the us-card will appear centered below the two cards above */
+}
+
 .video-section {
     text-align: center;
     background-color: var(--secondary-color);
@@ -492,7 +503,7 @@ body {
 
 .phone-frame {
     display: inline-block;
-    border: 20px solid #000; 
+    border: 20px solid #000;
     border-radius: 40px;
     box-shadow: 0 10px 15px rgba(0,0,0,0.2);
     overflow: hidden;
@@ -500,10 +511,18 @@ body {
     margin: 0 auto;
 }
 
-.phone-frame video {
-    display: block;
+/* Temporarily give a fixed height to see the iframe properly */
+.video-responsive {
     width: 100%;
-    height: auto;
+    height: 550px; /* Arbitrary height to ensure we can see something */
+    overflow: hidden;
+}
+
+.video-responsive iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
 }
 
 .video-description {
@@ -515,7 +534,6 @@ body {
     color: var(--text-color);
     padding: 0 20px;
 }
-
 /* Story (Timeline) */
 .story {
     background-color: #fff;
@@ -532,9 +550,14 @@ body {
     margin: 0 auto 40px auto;
 }
 
+/* Use max-width instead of a fixed width and ensure margin:auto for centering */
 .timeline-content {
     background: #fff;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box;
     border-radius: 10px;
     border: 2px solid var(--primary-color);
     text-align: center;
@@ -547,7 +570,8 @@ body {
 }
 
 .timeline-img img {
-    width: 100%;
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
 }
 
@@ -570,6 +594,16 @@ body {
     line-height: 1.6;
     font-size: 1rem;
     font-family: 'Lato', sans-serif;
+}
+
+/* Optional: Add a media query to ensure even better mobile experience */
+@media (max-width: 600px) {
+    .timeline-event {
+        width: 90%; /* Slightly more width on mobile */
+    }
+    .timeline-content {
+        max-width: 300px; /* Slightly reduce max-width if needed */
+    }
 }
 
 /* Event Details and Location Section */
@@ -727,6 +761,28 @@ body {
 .grid a:hover img {
     transform: scale(1.1);
     filter: brightness(80%);
+}
+
+/* Button at the end of image gallery */
+.full-gallery-link {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.full-gallery-btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    transition: background 0.3s;
+}
+
+.full-gallery-btn:hover {
+    background: var(--accent-color);
 }
 
 /* RSVP */
