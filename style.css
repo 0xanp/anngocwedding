@@ -52,41 +52,6 @@ body {
     z-index: 9999;
 }
 
-.nav-toggle-label {
-    display: none;
-    cursor: pointer;
-    z-index: 10000;
-}
-
-@media (max-width: 1024px) {
-    .nav-toggle-label {
-        display: block;
-        position: relative;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 60px;
-        right: -100%;
-        background: var(--secondary-color);
-        height: calc(100% - 60px);
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        transition: right 0.3s;
-        z-index: 9999;
-    }
-
-    #nav-toggle:checked ~ .nav-menu {
-        right: 0;
-    }
-
-    .nav-menu li {
-        margin: 15px 0;
-    }
-}
-
 .navbar-container {
     display: flex;
     align-items: center;
@@ -199,14 +164,15 @@ body {
         align-items: center;
         padding: 20px;
         transition: right 0.3s;
+        z-index: 9999;
+    }
+
+    #nav-toggle:checked ~ .nav-menu {
+        right: 0;
     }
 
     .nav-menu li {
         margin: 15px 0;
-    }
-
-    #nav-toggle:checked + .nav-toggle-label + .nav-menu {
-        right: 0;
     }
 
     .navbar-container {
@@ -220,7 +186,6 @@ body {
     }
 }
 
-/* Hide or scale down logo on very small screens */
 @media (max-width: 520px) {
     .logo img {
         display: none;
@@ -485,12 +450,7 @@ body {
     margin-top: 40px; /* Adds vertical space to form a V shape visually */
 }
 
-/* On large screens, groom and bride are on one line, the us-card naturally wraps to next line centered */
-@media (min-width: 1024px) {
-    /* Since .couple-container is justify-content:center and all cards have equal width and margin,
-       the us-card will appear centered below the two cards above */
-}
-
+/* Video Section */
 .video-section {
     text-align: center;
     background-color: var(--secondary-color);
@@ -534,6 +494,7 @@ body {
     color: var(--text-color);
     padding: 0 20px;
 }
+
 /* Story (Timeline) */
 .story {
     background-color: #fff;
@@ -596,13 +557,12 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-/* Optional: Add a media query to ensure even better mobile experience */
 @media (max-width: 600px) {
     .timeline-event {
-        width: 90%; /* Slightly more width on mobile */
+        width: 90%;
     }
     .timeline-content {
-        max-width: 300px; /* Slightly reduce max-width if needed */
+        max-width: 300px;
     }
 }
 
@@ -934,4 +894,116 @@ body {
     font-size: 2.5rem;
     color: var(--accent-color);
     margin-top: 20px;
+}
+
+
+.lucky-envelope-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Sticky Lucky Envelope Button with Font Awesome Icon */
+.lucky-envelope-btn {
+    position: fixed;
+    bottom: 200px;
+    right: 20px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+
+    /* Center the icon in a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+.lucky-envelope-btn i {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+/* Popup for Lucky Envelope */
+.lucky-envelope-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+}
+
+.lucky-envelope-content {
+    background: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.lucky-envelope-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.lucky-envelope-content p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.qr-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.qr-container div {
+    text-align: center;
+}
+
+.qr-container h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+}
+
+.qr-container img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+}
+
+.lucky-envelope-content button {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.lucky-envelope-content button:hover {
+    background: var(--accent-color);
 }

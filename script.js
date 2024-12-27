@@ -70,3 +70,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+/* 
+  Lucky Envelope Popup 
+  Toggles the display of the .lucky-envelope-popup on click
+*/
+function toggleLuckyEnvelopePopup() {
+    const popup = document.getElementById('lucky-envelope-popup');
+    if (popup.style.display === 'flex') {
+        popup.style.display = 'none';
+    } else {
+        popup.style.display = 'flex';
+        popup.style.alignItems = 'center';
+        popup.style.justifyContent = 'center';
+    }
+}

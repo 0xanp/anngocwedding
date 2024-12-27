@@ -83,7 +83,7 @@
                     <li><a href="#story">Câu Chuyện</a></li>
                     <li><a href="#details-location">Thông Tin Tiệc</a></li>
                     <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#rsvp">RSVP</a></li>
+                    <li><a href="#rsvp">Lời Nhắn</a></li>
                 </ul>
             </div>
         </nav>
@@ -411,8 +411,8 @@
     <!-- RSVP Form Section -->
     <section id="rsvp" class="rsvp">
         <div class="section-title" data-aos="fade-up">
-            <h2>Xác Nhận Tham Dự</h2>
-            <p>Vui lòng điền thông tin bên dưới để xác nhận tham dự</p>
+            <h2>Lời nhắn gửi</h2>
+            <p></p>
         </div>
         <form id="rsvp-form" onsubmit="submitRSVP(event)" data-aos="fade-up">
             <div class="form-group">
@@ -466,6 +466,30 @@
         </div>
         <p class="final-thank-you">Chúng mình xin cảm ơn!</p>
     </footer>
+
+    <!-- Sticky Lucky Envelope Button with Font Awesome Icon -->
+    <div class="lucky-envelope-btn" onclick="toggleLuckyEnvelopePopup()">
+        <i class="fa-solid fa-qrcode"></i>
+    </div>
+
+    <!-- Popup for Lucky Envelope -->
+    <div class="lucky-envelope-popup" id="lucky-envelope-popup">
+        <div class="lucky-envelope-content">
+            <h2>Mừng Cưới</h2>
+            <p>Xin cảm ơn tấm lòng của mọi người!</p>
+            <div class="qr-container">         
+                <div>
+                    <h3>Bình An</h3>
+                    <img src="images/qr-broom.jpg" alt="QR Groom">
+                </div>
+                <div>
+                    <h3>Bảo Ngọc</h3>
+                    <img src="images/qr-bride.jpg" alt="QR Bride">
+                </div>
+            </div>
+            <button onclick="toggleLuckyEnvelopePopup()">Đóng</button>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
